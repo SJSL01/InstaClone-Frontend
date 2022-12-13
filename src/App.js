@@ -7,14 +7,17 @@ import { ReloadContextProvider } from './Context/Reload'
 
 export default function App() {
   return (
-    <ReloadContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Landing_Page></Landing_Page>} />
-          <Route path='/postView' element={<Postview />} />
-          <Route path='/createPost' element={<CreatePost />} />
-        </Routes>
-      </BrowserRouter>
-    </ReloadContextProvider>
+  
+      <ReloadContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Landing_Page/>} />
+            <Route path='/postView' element={<Postview />} />
+            <Route path='/createPost' element={<CreatePost />} />
+          </Routes>
+        </BrowserRouter>
+      </ReloadContextProvider>
+
+
   )
 }

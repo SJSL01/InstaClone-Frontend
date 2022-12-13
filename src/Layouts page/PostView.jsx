@@ -10,7 +10,9 @@ import ReloadContext from '../Context/Reload';
 import Loader from '../Loader/Loader';
 
 
+
 export default function Postview() {
+
 
     const { reload } = useContext(ReloadContext)
 
@@ -26,8 +28,12 @@ export default function Postview() {
         getData()
 
     }, [reload])
+
+
+
+
     return (
-        <div className='main'>
+        <div className={`main`}>
             <header className='header'>
                 <div className='headICON'>
                     <img src={icon} alt="icon" />
@@ -40,8 +46,9 @@ export default function Postview() {
                     </Link>
                 </button>
 
+
             </header>
-            {UserData.length ? <Card UserData={UserData} /> : <Loader/>}
+            {UserData.length ? <Card UserData={UserData} /> : <Loader />}
         </div>
     )
 }

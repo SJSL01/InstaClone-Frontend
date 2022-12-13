@@ -33,6 +33,7 @@ export default function CreatePost() {
         toast.success("Posting....")
         const result = await axios.post("https://igcloneserver.onrender.com/createPost", PostData)
         // console.log(result);
+
         navigate("/postView")
         setReload(!reload)
     }
@@ -69,7 +70,22 @@ export default function CreatePost() {
 
 
                     <button onClick={handlePost} type="submit" >Post</button>
-                    <Toaster />
+                    <Toaster
+                        position="top-center"
+                        reverseOrder={false}
+                        gutter={8}
+                        containerClassName=""
+                        containerStyle={{}}
+                        toastOptions={{
+                            success: {
+                                duration: 4000,
+                                theme: {
+                                    primary: 'green',
+                                    secondary: 'black',
+                                },
+                            },
+                        }}
+                    />
 
 
 
