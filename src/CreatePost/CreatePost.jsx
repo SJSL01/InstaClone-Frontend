@@ -6,6 +6,7 @@ import FileBase64 from "react-file-base64"
 import { useNavigate } from 'react-router-dom'
 import ReloadContext from '../Context/Reload';
 import "../Styles/style.css"
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function CreatePost() {
 
@@ -28,15 +29,17 @@ export default function CreatePost() {
 
     const handlePost = async (e) => {
         e.preventDefault()
-        console.log(PostData);
+        // console.log(PostData);
+        toast.success("Posting....")
         const result = await axios.post("https://igcloneserver.onrender.com/createPost", PostData)
-        console.log(result);
+        // console.log(result);
         navigate("/postView")
         setReload(!reload)
     }
 
     return (
         <div className='create-post-container'>
+
 
             <div className='image-preview'>
                 {PostData.image && <img src={PostData.image} alt="" />}
@@ -54,19 +57,21 @@ export default function CreatePost() {
                         }} />
 
 
-                        <div>
-                    <input style={{marginRight:"10px"}} type="text" onChange={handleInput} value={PostData.author} placeholder="Author" name="author" />
-                    <input  style={{marginLeft:"10px"}} type="text" onChange={handleInput} value={PostData.location} placeholder="Location" name="location" />
-                        </div>
+                    <div>
+                        <input style={{ marginRight: "10px" }} type="text" onChange={handleInput} value={PostData.author} placeholder="Author" name="author" />
+                        <input style={{ marginLeft: "10px" }} type="text" onChange={handleInput} value={PostData.location} placeholder="Location" name="location" />
+                    </div>
 
 
 
                     <input type="text" onChange={handleInput} value={PostData.description} placeholder="Description" name="description" />
 
 
-                    <button onClick={handlePost} type='submit'>
-                        Post
-                    </button>
+
+                    <button onClick={handlePost} type="submit" >Post</button>
+                    <Toaster />
+
+
 
                 </form>
             </div>

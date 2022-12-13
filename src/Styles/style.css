@@ -177,6 +177,53 @@
 }
 
 
+.loading-text{
+    position: relative;
+    top: 30vh;
+    font-size: 5em;
+    animation: loading 1s infinite;
+    background-color: black;
+    border-radius: 30px;
+    
+}
+
+@keyframes loading {
+    0%{
+        color: orangered;
+        scale: 1.2;
+    }
+    50%{
+        color: yellowgreen;
+        scale: 1.1;
+    }
+    100%{    
+        color: lightblue;
+        scale: 1.2;
+    }
+}
+
+.loading-line{
+    background-color: aqua;
+    height: 5px;
+    width: 0;
+    animation: loading-line 1s infinite;
+}
+
+@keyframes loading-line {
+    0%{
+        background-color: lightcoral;
+        width: 100%;
+    }
+    50%{
+        background-color: lightgreen;
+        width: 0;
+    }
+    100%{    
+        background-color: lightblue;
+        width: 100%;
+    }
+}
+
 
 
 @media only screen and (min-width: 500px) {

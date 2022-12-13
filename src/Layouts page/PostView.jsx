@@ -7,11 +7,12 @@ import icon from './HeadIcon.png'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import ReloadContext from '../Context/Reload';
+import Loader from '../Loader/Loader';
 
 
 export default function Postview() {
 
-    const {reload} = useContext(ReloadContext)
+    const { reload } = useContext(ReloadContext)
 
     const [UserData, setUserData] = useState([])
 
@@ -19,7 +20,7 @@ export default function Postview() {
 
         const getData = async () => {
             const result = await axios.get('https://igcloneserver.onrender.com/getPosts')
-            console.log(result.data);
+            // console.log(result.data);
             setUserData(result.data.reverse())
         }
         getData()
@@ -40,7 +41,7 @@ export default function Postview() {
                 </button>
 
             </header>
-            <Card UserData={UserData} />
+            {UserData.length ? <Card UserData={UserData} /> : <Loader/>}
         </div>
     )
 }
