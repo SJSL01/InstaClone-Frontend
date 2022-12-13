@@ -31,11 +31,20 @@ export default function CreatePost() {
         e.preventDefault()
         // console.log(PostData);
         toast.success("Posting....")
-        const result = await axios.post("https://igcloneserver.onrender.com/createPost", PostData)
-        // console.log(result);
 
-        navigate("/postView")
-        setReload(!reload)
+        try {
+            const result = await axios.post("https://igcloneserver.onrender.com/createPost", PostData)
+            console.log(result);
+            toast.success("Posted")
+            navigate("/postView")
+            setReload(!reload)
+            
+        } catch (error) {
+            toast.error("Max File Size Should Be 5mb")
+            toast.error("Try Again!!!")
+            // console.log(error);
+        }
+
     }
 
     return (
